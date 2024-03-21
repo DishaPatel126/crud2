@@ -1,7 +1,7 @@
 <x-guest-layout>
-    <div class="mb-1">Back to
+    <div class="mb-1 text-ivory">Back to
         <a href="{{ url('/home') }}"
-            class="inline-flex items-center text-md font-semibold text-black hover:text-berkleyBlue/80 transition duration-150 ease-in-out underline">
+            class="inline-flex items-center text-md font-semibold text-ivory hover:text-lightCyan transition duration-150 ease-in-out underline">
             home
         </a>
     </div>
