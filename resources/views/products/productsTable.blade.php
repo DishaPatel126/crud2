@@ -17,22 +17,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased">
+<body class="font-sans text-ivory antialiased">
     @include('components.owner.navbar')
-    <div class="min-h-screen bg-gray-100">
-
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
+    <div class="min-h-screen bg-eerieBlack">
 
         <!-- Page Content -->
-        <main class="flex flex-col  items-center pt-6 bg-gray-100">
-            <div class="mt-3 mb-12 px-6 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <main class="flex flex-col items-center pt-6">
+            <div class="mt-3 mb-12 px-6 bg-black shadow-md overflow-hidden sm:rounded-lg">
                 <div class="px-6 py-3 text-left text-green-700">
                     @if (session()->has('success'))
                         <div>
@@ -86,5 +77,4 @@
         </main>
     </div>
 </body>
-
 </html>

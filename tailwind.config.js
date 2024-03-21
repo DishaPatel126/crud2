@@ -20,6 +20,8 @@ export default {
                 honeydew: '#F1FAEE',
                 burntSienna: '#EE6C4D',
                 grey: '#444',
+                night : '#141415',
+                eerieBlack: '#202122',
 
             },
             fontFamily: {
