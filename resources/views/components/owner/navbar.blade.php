@@ -34,7 +34,7 @@
                     Log Out
                 </a>
                 <a
-                    class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-honeydew bg-burntSienna focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ">
+                    class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-oxfordBlue bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ">
                     {{ Auth::user()->name }}
                 </a>
             </div>

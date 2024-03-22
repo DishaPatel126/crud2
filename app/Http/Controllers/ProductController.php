@@ -31,11 +31,11 @@ class ProductController extends Controller
             'description' => 'nullable'
         ]);
         $newProduct = Product::create($data);
-        WebhookCall::create()
-            ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
-            ->payload([$newProduct])
-            ->useSecret('one')
-            ->dispatch();
+        // WebhookCall::create()
+        //     ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
+        //     ->payload([$newProduct])
+        //     ->useSecret('one')
+        //     ->dispatch();
 
         return redirect('products')->with('success', 'Product created successfully');
     }
@@ -59,22 +59,22 @@ class ProductController extends Controller
         $product->update($data);
         $updatedProduct = Product::find($product->id);
 
-        WebhookCall::create()
-            ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
-            ->payload([$updatedProduct])
-            ->useSecret('one')
-            ->dispatch();
+        // WebhookCall::create()
+        //     ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
+        //     ->payload([$updatedProduct])
+        //     ->useSecret('one')
+        //     ->dispatch();
         return redirect('products')->with('success', 'Product updated successfully');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
-        WebhookCall::create()
-            ->url('http://127.0.0.1:8000/webhooks')
-            ->payload([["key"=>1,"code"=>$product->code]])
-            ->useSecret('one')
-            ->dispatch();
+        // WebhookCall::create()
+        //     ->url('http://127.0.0.1:8000/webhooks')
+        //     ->payload([["key"=>1,"code"=>$product->code]])
+        //     ->useSecret('one')
+        //     ->dispatch();
         return redirect('products')->with('success', 'Product deleted successfully');
     }
 }
