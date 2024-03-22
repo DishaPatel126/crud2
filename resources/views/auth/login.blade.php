@@ -1,8 +1,8 @@
 <x-guest-layout>
     <!-- Session Status -->
-    <div class="mb-1">Back to
+    <div class="mb-1 text-ivory">Back to
         <a href="{{ url('/home') }}"
-            class="inline-flex items-center text-md font-semibold text-black hover:text-berkleyBlue/80 transition duration-150 ease-in-out underline">
+            class="inline-flex items-center text-md font-semibold text-ivory hover:text-lightCyan transition duration-150 ease-in-out underline">
             home
         </a>
     </div>
@@ -33,12 +33,12 @@
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
                     class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ms-2 text-sm text-ivory">{{ __('Remember me') }}</span>
             </label>
         </div>
 
         <div>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <a class="underline text-sm text-ivory hover:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('register') }}">
                 {{ __('Not an user? Register here') }}
             </a>
@@ -46,7 +46,7 @@
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                <a class="underline text-sm text-ivory hover:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>

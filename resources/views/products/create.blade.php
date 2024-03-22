@@ -18,8 +18,8 @@
 
 <body class="font-sans text-gray-900 antialiased">
     @include('components.owner.navbar')
-    <div class="min-h-screen flex flex-col pt-8 items-center bg-gray-100">
-        <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <div class="min-h-screen flex flex-col pt-8 items-center bg-eerieBlack">
+        <div class="w-full sm:max-w-md px-6 py-4 bg-night shadow-md overflow-hidden sm:rounded-lg">
             @if ($errors->any())
                 <div>
                     <strong>Whoops! There were some problems with your input.</strong>
