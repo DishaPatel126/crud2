@@ -10,7 +10,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-
         $products = Product::orderBy('created_at')->paginate(8); //displays 8 products per page
         // $products = Product::all(); //display all products
         return view('products.productsTable', ['products' => $products]); //add the path of the view file; not the name of file in route
