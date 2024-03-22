@@ -32,7 +32,7 @@ class ProductController extends Controller
         ]);
         $newProduct = Product::create($data);
         WebhookCall::create()
-            ->url('http://127.0.0.1:8000/webhooks')
+            ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
             ->payload([$newProduct])
             ->useSecret('one')
             ->dispatch();
@@ -57,12 +57,24 @@ class ProductController extends Controller
         // $data = $request->all();  //unvalidated data
 
         $product->update($data);
+        $updatedProduct = Product::find($product->id);
+
+        WebhookCall::create()
+            ->url('http://127.0.0.1:8000/webhooks') //put url dynamically after fetching it from webhook from webapp
+            ->payload([$updatedProduct])
+            ->useSecret('one')
+            ->dispatch();
         return redirect('products')->with('success', 'Product updated successfully');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
+        WebhookCall::create()
+            ->url('http://127.0.0.1:8000/webhooks')
+            ->payload([["key"=>1,"code"=>$product->code]])
+            ->useSecret('one')
+            ->dispatch();
         return redirect('products')->with('success', 'Product deleted successfully');
     }
 }
