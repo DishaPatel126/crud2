@@ -1,26 +1,26 @@
 <div>
-    <div class="fixed top-0 w-full bg-night z-50">
+    <div class="fixed top-0 w-full bg-white z-50">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 ">
             <div class="inline-flex items-center space-x-2">
-                <span class="font-bold text-lightCyan text-lg py-2 lg:py-0">CRUD 2</span>
+                <span class="font-bold text-lg py-2 lg:py-0">CRUD 1</span>
             </div>
             <div class="hidden md:block grow items-start">
                 <ul class="ml-12 inline-flex space-x-8 ">
                     <li>
                         <a href="{{ url('/home') }}" id="home"
-                            class=" inline-flex items-center text-lg font-semibold text-lightCyan hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
+                            class=" inline-flex items-center text-lg font-semibold text-black hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
                             Home
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('/products') }}" id="products"
-                            class=" inline-flex items-center text-lg font-semibold text-lightCyan hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
+                            class=" inline-flex items-center text-lg font-semibold text-black hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
                             Products
                         </a>
                     </li>
                     <li>
                         <a href="products/create" id="create"
-                            class=" inline-flex items-center text-lg font-semibold text-lightCyan hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
+                            class=" inline-flex items-center text-lg font-semibold text-black hover:bg-honeydew/80 px-3 py-2 rounded-md hover:text-berkleyBlue transition duration-150 ease-in-out">
                             Create product
                         </a>
                     </li>
@@ -30,7 +30,7 @@
             @if (Auth::user() !== null)
                 <div class="hidden space-x-2 md:block ">
                     <a href="{{ url('/logout') }}"
-                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-lightCyan hover:bg-burntSienna/80 hover:text-oxfordBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-black hover:bg-lightCyan/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                         Log Out
                     </a>
                     <a
@@ -41,11 +41,11 @@
             @else
                 <div class="hidden space-x-2 md:block">
                     <a href="{{ url('/login') }}"
-                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-lightCyan hover:bg-burntSienna/80 hover:text-oxfordBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-black hover:bg-lightCyan/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                         Log In
                     </a>
                     <a href="{{ url('/register') }}"
-                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-lightCyan hover:bg-burntSienna/80 hover:text-oxfordBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ">
+                        class="rounded-md bg-transparent px-3 py-2 text-lg font-semibold text-black hover:bg-lightCyan/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ">
                         Sign Up
                     </a>
                 </div>

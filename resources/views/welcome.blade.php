@@ -11,8 +11,8 @@
 
 <body class="font-sans text-gray-900 antialiased">
     @include('components.owner.navbar')
-    <div class="min-h-screen flex flex-col pt-8 bg-eerieBlack">
-        <div class="mx-6 text-ivory">
+    <div class="min-h-screen flex flex-col pt-8 bg-gray-100">
+        <div class="mx-6">
             <h1 class="font-bold">Home page</h1>
             <p>add something here like user deets</p>
         </div>
