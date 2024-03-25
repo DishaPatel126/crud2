@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\WebhookUrl;
 use Spatie\WebhookServer\WebhookCall;
 
 class ProductController extends Controller
@@ -30,11 +31,17 @@ class ProductController extends Controller
             'description' => 'nullable'
         ]);
         $newProduct = Product::create($data);
-        WebhookCall::create()
-            ->url('http://127.0.0.1:8001/webhooks') //put url dynamically after fetching it from webhook from webapp
-            ->payload([$newProduct])
+        $formUrl=WebhookUrl::all();
+        foreach ($formUrl as $url){
+            $crudUrl=$url->from_url;
+            $result=array_merge(['crudUrl'=>$crudUrl],$data);
+            WebhookCall::create()
+            ->url($url->to_url.'/webhooks') //put url dynamically after fetching it from webhook from webapp
+            ->payload([$result])
             ->useSecret('one')
             ->dispatch();
+
+        }
 
         return redirect('products')->with('success', 'Product created successfully');
     }
@@ -57,12 +64,17 @@ class ProductController extends Controller
 
         $product->update($data);
         $updatedProduct = Product::find($product->id);
-
-        WebhookCall::create()
-            ->url('http://127.0.0.1:8001/webhooks') //put url dynamically after fetching it from webhook from webapp
-            ->payload([$updatedProduct])
+        $formUrl=WebhookUrl::all();
+        foreach ($formUrl as $url){
+            $crudUrl=$url->from_url;
+            $result=array_merge(['crudUrl'=>$crudUrl],$data,['update'=>'1']);
+            WebhookCall::create()
+            ->url($url->to_url.'/webhooks') //put url dynamically after fetching it from webhook from webapp
+            ->payload([$result])
             ->useSecret('one')
             ->dispatch();
+
+        }
 
         return redirect('products')->with('success', 'Product updated successfully');
     }
@@ -71,11 +83,16 @@ class ProductController extends Controller
     {
         $product->delete();
         
+        $formUrl=WebhookUrl::all();
+        foreach ($formUrl as $url){
+            $crudUrl=$url->from_url;
+            $result=array_merge(['crudUrl'=>$crudUrl],["key"=>1],["code"=>$product->code]);
         WebhookCall::create()
-            ->url('http://127.0.0.1:8001/webhooks')
-            ->payload([["key"=>1,"code"=>$product->code]])
+            ->url($url->to_url.'/webhooks')
+            ->payload([$result])
             ->useSecret('one')
             ->dispatch();
+        }
 
         return redirect('products')->with('success', 'Product deleted successfully');
     }
